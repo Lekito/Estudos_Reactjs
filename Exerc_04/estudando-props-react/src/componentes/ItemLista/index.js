@@ -8,10 +8,10 @@ export default function ItemLista(props) {
         {props.signo}
       </div>
       
-      <img className="imagemSigno" src= {props.imagem} alt= {props.signo} />
+      <img className="imagemSigno" src={props.imagem} alt={props.signo}/>
       
       <div className="periodoNascimento">
-        {props.dataInicio } - {props.dataFim}
+        {props.dataInicio} - {props.dataFim}
       </div>
     </div>
   )
