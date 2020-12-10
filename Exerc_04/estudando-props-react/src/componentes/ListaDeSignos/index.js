@@ -12,7 +12,7 @@ export default function ListaDeSignos() {
       <div className="lista">
         <ItemLista 
           signo="Aquário" dataInicio="21/01" 
-          dataFim="19/02" imagem="assets/aquario.jpg"/>
+          dataFim="19/02" imagem="assets/aquario.jpg" />
 
         <ItemLista 
           signo="Peixes" dataInicio="20/02" 
