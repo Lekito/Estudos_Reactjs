@@ -1,5 +1,6 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+
 
 export default function Home() {
   return(
@@ -17,7 +18,9 @@ export default function Home() {
         </div>
         <div className="lg:min-h-screen lg:flex lg:items-center p-12 lg:p-24 xl:p-48">
           <div className="flex-grow bg-white shadow-xl rounded-md border border-grey-300 p-8">
+            <div className="sm:flex sm:items-center">
               
+            </div>
           </div>
         </div>
       </div>
