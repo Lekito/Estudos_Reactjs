@@ -17,8 +17,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="lg:min-h-screen lg:flex lg:items-center p-12 lg:p-24 xl:p-48">
-          <div className="flex-grow bg-white shadow-xl rounded-md border border-grey-300 p-8">
+        <div className="lg:min-h-screen lg:flex lg:items-center p-12 lg:p-24 xl:p-48 ">
+          <div className="flex-grow bg-white shadow-xl rounded-md border border-grey-300 p-8 ">
             <div className="sm:flex sm:items-center">
               <img src="/alex_pequena.jpg" className="sm:flex-shrink-0 mx-auto sm:mx-0 h-20 rounded-full"/>
               <div className="sm:ml-4 sm:text-left text-center">
