@@ -5,7 +5,7 @@ Esse é um compilado de códigos iniciais que fiz com JavaScript usando React qu
 
 ## Os principais projetos nesse repositório são:
 
-- ### [movimente-se-next](https://github.com/Lekito/Estudos_Reactjs/tree/main/nlw/aulas/movimente-se-next/public) 
+- ### [movimente-se-next](https://github.com/Lekito/Estudos_Reactjs/tree/main/nlw/aulas/movimente-se-next) 
   
    Nesse projeto eu utilizo o React JS com NextJS e também utilizo o servidor da vercel para hospedar essa aplicação.
    Link para essa aplicação: https://movimente-se-next.vercel.app/S
