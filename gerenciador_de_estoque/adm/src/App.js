@@ -2,6 +2,10 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './pages/Dashboard';
 import { Listar } from './pages/Listar';
+import { Visualizar } from './pages/Visualizar';
+import { Cadastrar } from './pages/Cadastrar';
+import { Editar } from './pages/Editar';
+
 
 function App() {
   return (
@@ -10,6 +14,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Dashboard />} />
           <Route path="/listar" element={<Listar />} />
+          <Route path="/visualizar" element={<Visualizar />} />
+          <Route path="/cadastrar" element={<Cadastrar />} />
+          <Route path="/editar" element={<Editar />} />
 
         </Routes>
       </BrowserRouter>
