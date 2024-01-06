@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
+import { useParams } from 'react-router-dom';
 
 export const Visualizar = () => {
-    const [id, setId] = useState("");
+
+    const { id } = useParams();
+    console.log(id);
+
     const [data, setData] = useState("");
 
     useEffect(() => {
@@ -15,13 +19,13 @@ export const Visualizar = () => {
             })
         }
         getProduto();
-    }, [id])
+    }, []);
 
     return (
         <>
             <Menu />
             <h1>Visualizar</h1>
-            <span>{data.id}</span><br />
+            <span>{id}</span><br />
 
         </>
     );

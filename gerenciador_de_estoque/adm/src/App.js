@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Dashboard />} />
           <Route path="/listar" element={<Listar />} />
-          <Route path="/visualizar" element={<Visualizar />} />
+          <Route exact path="/visualizar/:id" element={<Visualizar />} />
           <Route path="/cadastrar" element={<Cadastrar />} />
           <Route path="/editar" element={<Editar />} />
 

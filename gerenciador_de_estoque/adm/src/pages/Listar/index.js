@@ -57,7 +57,7 @@ export const Listar = () => {
                                 <td>{produto.valor}</td>
                                 <td>{produto.quantidade}</td>
                                 <td>
-                                    <Link to={"/visualizar" + produto.id}><button type="button">Visualizar</button></Link>
+                                    <Link to={"/visualizar/" + produto.id}><button type="button">Visualizar</button></Link>
                                     Edidar Apagar</td>
                             </tr>
                         ))
