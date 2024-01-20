@@ -38,6 +38,8 @@ export const Listar = () => {
             <Menu />
             <h1>Listar</h1>
 
+            <Link to="/cadastrar"><button type="button">Cadastrar</button></Link>
+            <hr />
             <table>
                 <thead>
                     <tr>
@@ -58,7 +60,8 @@ export const Listar = () => {
                                 <td>{produto.quantidade}</td>
                                 <td>
                                     <Link to={"/visualizar/" + produto.id}><button type="button">Visualizar</button></Link>
-                                    Edidar Apagar</td>
+                                    <Link to={"/editar/" + produto.id}><button type="button">Editar</button></Link>
+                                    Apagar</td>
                             </tr>
                         ))
                     }

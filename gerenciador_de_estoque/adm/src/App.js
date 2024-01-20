@@ -16,7 +16,7 @@ function App() {
           <Route path="/listar" element={<Listar />} />
           <Route exact path="/visualizar/:id" element={<Visualizar />} />
           <Route path="/cadastrar" element={<Cadastrar />} />
-          <Route path="/editar" element={<Editar />} />
+          <Route path="/editar/:id" element={<Editar />} />
 
         </Routes>
       </BrowserRouter>
