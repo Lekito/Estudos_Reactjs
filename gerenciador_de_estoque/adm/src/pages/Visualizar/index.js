@@ -19,14 +19,17 @@ export const Visualizar = () => {
             })
         }
         getProduto();
-    }, []);
+    }, [id]);
 
     return (
         <>
             <Menu />
             <h1>Visualizar</h1>
-            <span>{id}</span><br />
-
+            <span>Selecionado: {id}</span><br />
+            <span>ID:{data.id}</span><br />
+            <span>Nome: {data.nome}</span><br />
+            <span>Valor: {data.valor}</span><br />
+            <span>Quantidade: {data.quantidade}</span><br />
         </>
     );
 }
