@@ -32,7 +32,12 @@ export const Listar = () => {
 
     useEffect(() => {
         listarProdutos();
-    }, [])
+    }, []);
+
+    const apagarProduto = async (idProduto) => {
+        console.log(idProduto);
+    }
+
     return (
         <>
             <Menu />
@@ -61,7 +66,7 @@ export const Listar = () => {
                                 <td>
                                     <Link to={"/visualizar/" + produto.id}><button type="button">Visualizar</button></Link>
                                     <Link to={"/editar/" + produto.id}><button type="button">Editar</button></Link>
-                                    Apagar</td>
+                                    <Link to={"#"}><button onClick={() => apagarProduto(produto.id)}>Apagar</button></Link></td>
                             </tr>
                         ))
                     }
