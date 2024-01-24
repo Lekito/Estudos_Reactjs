@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
 import { Link, useLocation } from 'react-router-dom';
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess } from "../../styles/custom_adm";
 
 export const Listar = () => {
 
@@ -47,13 +48,17 @@ export const Listar = () => {
     }
 
     return (
-        <>
+        <Container>
             <Menu />
-            <h1>Listar</h1>
+            <ConteudoTitulo>
+                <Titulo>Listar</Titulo>
+                <BotaoAcao>
+                    <Link to="/cadastrar"><ButtonSuccess type="button">Cadastrar</ButtonSuccess></Link>
+                </BotaoAcao>
+            </ConteudoTitulo>
 
             {status.type === "success" ? <p style={{ color: "green" }}>{status.mensagem}</p> : ""}
 
-            <Link to="/cadastrar"><button type="button">Cadastrar</button></Link>
             <hr />
             <table>
                 <thead>
@@ -82,7 +87,6 @@ export const Listar = () => {
                     }
                 </tbody>
             </table>
-
-        </>
+        </Container>
     );
 }
