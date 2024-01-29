@@ -95,3 +95,24 @@ export const ButtonDanger = styled.button`
     }
     margin: 5px;
 `;
+
+export const ButtonInfo = styled.button`
+    background-color: #fff;
+    color: #0dcaf0;
+    padding: 5px 8px;
+    border: 1px solid #0dcaf0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+        background-color: #0dcaf0;
+        color: #fff;
+    }
+`;
+
+export const ListView = styled.p`
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: sans-serif;
+
+`;

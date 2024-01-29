@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonWarning, ButtonInfo, ListView } from "../../styles/custom_adm";
 
 export const Visualizar = () => {
 
@@ -22,14 +23,23 @@ export const Visualizar = () => {
     }, [id]);
 
     return (
-        <>
+        <Container>
             <Menu />
-            <h1>Visualizar</h1>
-            <span>Selecionado: {id}</span><br />
-            <span>ID:{data.id}</span><br />
-            <span>Nome: {data.nome}</span><br />
-            <span>Valor: {data.valor}</span><br />
-            <span>Quantidade: {data.quantidade}</span><br />
-        </>
+            <ConteudoTitulo>
+                <Titulo>Visualizar</Titulo>
+                <BotaoAcao>
+                    <Link to="/listar"><ButtonInfo type="button">Listar</ButtonInfo></Link>
+                    <Link to={"/editar/" + id}><ButtonWarning type="button">Editar</ButtonWarning></Link>
+                </BotaoAcao>
+            </ConteudoTitulo>
+
+            <hr />
+
+            <ListView>Selecionado: {id}</ListView>
+            <ListView>ID:{data.id}</ListView>
+            <ListView>Nome: {data.nome}</ListView>
+            <ListView>Valor: {data.valor}</ListView>
+            <ListView>Quantidade: {data.quantidade}</ListView>
+        </Container>
     );
 }
