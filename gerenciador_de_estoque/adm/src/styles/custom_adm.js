@@ -26,12 +26,72 @@ export const ButtonSuccess = styled.button`
     background-color: #fff;
     color: #198754;
     padding: 5px 8px;
-    border: 1px solid;
+    border: 1px solid #198754;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    :hover {
+    &:hover {
         background-color: #198754;
         color: #fff;
     }
+`;
+
+export const Table = styled.table`
+   margin-top: 15px;
+   width: 100%;
+   th{
+        background-color: #007281;
+        color: #f1f1f1;
+        padding: 10px;
+   }
+   td{
+        background-color: #f6f6f6;
+        color: #3e3e3e;
+        padding: 8px;
+   }
+`;
+
+export const ButtonPrimary = styled.button`
+    background-color: #fff;
+    color: #0d6efd;
+    &:hover{
+        background-color: #0d6efd;
+        color: #fff;
+    };
+    padding: 5px 8px;
+    border: 1px solid #0d6efd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+`;
+
+export const ButtonWarning = styled.button`
+    background-color: #fff;
+    color: #ffc107;
+    &:hover{
+        background-color: #ffc107;
+        color: #fff;
+    };
+    padding: 5px 8px;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+`;
+
+export const ButtonDanger = styled.button`
+    background-color: #fff;
+    color: #dc3545;
+    padding: 5px 8px;
+    border: 1px solid #dc3545;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    margin: 5px;
 `;

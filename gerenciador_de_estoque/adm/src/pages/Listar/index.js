@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess } from "../../styles/custom_adm";
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, Table, ButtonPrimary, ButtonWarning, ButtonDanger } from "../../styles/custom_adm";
 
 export const Listar = () => {
 
@@ -45,6 +45,7 @@ export const Listar = () => {
 
     const apagarProduto = async (idProduto) => {
         console.log(idProduto);
+        alert("Apagar o produto: " + idProduto);
     }
 
     return (
@@ -60,14 +61,14 @@ export const Listar = () => {
             {status.type === "success" ? <p style={{ color: "green" }}>{status.mensagem}</p> : ""}
 
             <hr />
-            <table>
+            <Table>
                 <thead>
                     <tr>
-                        <td>Id</td>
-                        <td>Nome</td>
-                        <td>Valor</td>
-                        <td>Quantidade</td>
-                        <td>Ações</td>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -79,14 +80,14 @@ export const Listar = () => {
                                 <td>{produto.valor}</td>
                                 <td>{produto.quantidade}</td>
                                 <td>
-                                    <Link to={"/visualizar/" + produto.id}><button type="button">Visualizar</button></Link>
-                                    <Link to={"/editar/" + produto.id}><button type="button">Editar</button></Link>
-                                    <Link to={"#"}><button onClick={() => apagarProduto(produto.id)}>Apagar</button></Link></td>
+                                    <Link to={"/visualizar/" + produto.id}><ButtonPrimary type="button">Visualizar</ButtonPrimary></Link>
+                                    <Link to={"/editar/" + produto.id}><ButtonWarning type="button">Editar</ButtonWarning></Link>
+                                    <Link to={"#"}><ButtonDanger onClick={() => apagarProduto(produto.id)}>Apagar</ButtonDanger></Link></td>
                             </tr>
                         ))
                     }
                 </tbody>
-            </table>
+            </Table>
         </Container>
     );
 }
