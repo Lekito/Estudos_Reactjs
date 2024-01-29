@@ -110,7 +110,7 @@ export const ButtonInfo = styled.button`
     }
 `;
 
-export const ListView = styled.p`
+export const ConttentView = styled.p`
     margin-top: 15px;
     font-size: 18px;
     font-family: sans-serif;

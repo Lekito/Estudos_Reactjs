@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
 import { Link, useParams } from 'react-router-dom';
-import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonWarning, ButtonInfo, ListView } from "../../styles/custom_adm";
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonWarning, ButtonInfo, ConttentView } from "../../styles/custom_adm";
 
 export const Visualizar = () => {
 
@@ -35,11 +35,11 @@ export const Visualizar = () => {
 
             <hr />
 
-            <ListView>Selecionado: {id}</ListView>
-            <ListView>ID:{data.id}</ListView>
-            <ListView>Nome: {data.nome}</ListView>
-            <ListView>Valor: {data.valor}</ListView>
-            <ListView>Quantidade: {data.quantidade}</ListView>
+            <ConttentView>Selecionado: {id}</ConttentView>
+            <ConttentView>ID:{data.id}</ConttentView>
+            <ConttentView>Nome: {data.nome}</ConttentView>
+            <ConttentView>Valor: {data.valor}</ConttentView>
+            <ConttentView>Quantidade: {data.quantidade}</ConttentView>
         </Container>
     );
 }
