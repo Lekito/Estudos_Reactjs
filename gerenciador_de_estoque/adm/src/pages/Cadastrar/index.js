@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu } from '../../Components/Menu';
-import { useNavigate } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, ButtonInfo, Form, Label, Input, Hr } from "../../styles/custom_adm";
 
 export const Cadastrar = () => {
 
@@ -41,9 +41,16 @@ export const Cadastrar = () => {
     }
 
     return (
-        <>
+        <Container>
             <Menu />
-            <h1>Cadastrar</h1>
+            <ConteudoTitulo>
+                <Titulo>Visualizar</Titulo>
+                <BotaoAcao>
+                    <Link to="/listar"><ButtonInfo type="button">Listar</ButtonInfo></Link>
+                </BotaoAcao>
+            </ConteudoTitulo>
+
+            <Hr />
 
             {status.type === 'error' ? <p style={{ color: "#ff0000" }}>{status.mensagem}</p> : ""}
             {status.type === 'success' ? <p style={{ color: "green" }}>{status.mensagem}</p> : ""}
@@ -55,24 +62,18 @@ export const Cadastrar = () => {
                 }
             }) : ""}
 
-            <form onSubmit={addProduto}>
-                <label>Nome: </label>
-                <input type="text" name="nome" placeholder="Nome do produto" onChange={valueInput}></input>
-                <br />
-                <br />
+            <Form onSubmit={addProduto}>
+                <Label>Nome: </Label>
+                <Input type="text" name="nome" placeholder="Nome do produto" onChange={valueInput}></Input>
 
-                <label>Valor: </label>
-                <input type="float" name="valor" placeholder="Valor do produto" onChange={valueInput}></input>
-                <br />
-                <br />
+                <Label>Valor: </Label>
+                <Input type="float" name="valor" placeholder="Valor do produto" onChange={valueInput}></Input>
 
-                <label>Quatidade: </label>
-                <input type="number" name="quantidade" placeholder="Quantidade do produto" onChange={valueInput}></input>
-                <br />
-                <br />
+                <Label>Quatidade: </Label>
+                <Input type="number" name="quantidade" placeholder="Quantidade do produto" onChange={valueInput}></Input>
 
-                <button type="submit">Cadastrar</button>
-            </form>
-        </>
+                <ButtonSuccess type="submit">Cadastrar</ButtonSuccess>
+            </Form>
+        </Container>
     );
 }

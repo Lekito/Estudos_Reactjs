@@ -111,8 +111,33 @@ export const ButtonInfo = styled.button`
 `;
 
 export const ConttentView = styled.p`
-    margin-top: 15px;
+    margin-top: 9px;
     font-size: 18px;
     font-family: sans-serif;
+`;
 
+export const Form = styled.form`
+    margin: 0px auto;
+`;
+
+export const Label = styled.label`
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+`;
+
+export const Input = styled.input`
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+`;
+
+export const Hr = styled.hr`
+    margin-bottom: 15px;
 `;
