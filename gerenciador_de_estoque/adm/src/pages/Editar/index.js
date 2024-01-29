@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonInfo, Form, Label, Input, Hr, ButtonPrimary, ButtonWarning } from "../../styles/custom_adm";
 
 export const Editar = () => {
 
@@ -14,6 +15,7 @@ export const Editar = () => {
         console.log("Nome: " + nome);
         console.log("Valor: " + valor);
         console.log("Quantidade: " + quantidade);
+        alert("Nome: " + nome);
     }
 
     useEffect(() => {
@@ -26,28 +28,30 @@ export const Editar = () => {
     }, [id]);
 
     return (
-        <>
+        <Container>
             <Menu />
-            <h1>Editar</h1>
+            <ConteudoTitulo>
+                <Titulo>Editar</Titulo>
+                <BotaoAcao>
+                    <Link to="/listar"><ButtonInfo type="button">Listar</ButtonInfo></Link>
+                    <Link to={"/visualizar/" + id}><ButtonPrimary type="button">Visualizar</ButtonPrimary></Link>
+                </BotaoAcao>
+            </ConteudoTitulo>
 
-            <form onSubmit={editProduto}>
-                <label>Nome: </label>
-                <input type="text" name="nome" placeholder="Nome do produto" value={nome} onChange={e => setNome(e.target.value)}></input>
-                <br />
-                <br />
+            <Hr />
 
-                <label>Valor: </label>
-                <input type="float" name="valor" placeholder="Valor do produto" value={valor} onChange={e => setValor(e.target.value)}></input>
-                <br />
-                <br />
+            <Form onSubmit={editProduto}>
+                <Label>Nome: </Label>
+                <Input type="text" name="nome" placeholder="Nome do produto" value={nome} onChange={e => setNome(e.target.value)}></Input>
 
-                <label>Quatidade: </label>
-                <input type="number" name="quantidade" placeholder="Quantidade do produto" value={quantidade} onChange={e => setQuantidade(e.target.value)}></input>
-                <br />
-                <br />
+                <Label>Valor: </Label>
+                <Input type="float" name="valor" placeholder="Valor do produto" value={valor} onChange={e => setValor(e.target.value)}></Input>
 
-                <button type="submit">Salvar</button>
-            </form>
-        </>
+                <Label>Quatidade: </Label>
+                <Input type="number" name="quantidade" placeholder="Quantidade do produto" value={quantidade} onChange={e => setQuantidade(e.target.value)}></Input>
+
+                <ButtonWarning type="submit">Salvar</ButtonWarning>
+            </Form>
+        </Container>
     );
 }
