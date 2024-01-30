@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu } from '../../Components/Menu';
 import { Link, useNavigate } from "react-router-dom";
-import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, ButtonInfo, Form, Label, Input, Hr } from "../../styles/custom_adm";
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, ButtonInfo, Form, Label, Input, Hr, AlertDanger, AlertSuccess } from "../../styles/custom_adm";
 
 export const Cadastrar = () => {
 
@@ -52,8 +52,8 @@ export const Cadastrar = () => {
 
             <Hr />
 
-            {status.type === 'error' ? <p style={{ color: "#ff0000" }}>{status.mensagem}</p> : ""}
-            {status.type === 'success' ? <p style={{ color: "green" }}>{status.mensagem}</p> : ""}
+            {status.type === 'error' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
+            {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
             {status.type === 'redSuccess' ? navigate("/listar", {
                 state:
                 {

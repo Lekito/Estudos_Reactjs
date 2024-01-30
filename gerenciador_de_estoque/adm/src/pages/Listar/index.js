@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
 import { Link, useLocation } from 'react-router-dom';
-import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, Table, ButtonPrimary, ButtonWarning, ButtonDanger } from "../../styles/custom_adm";
+import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonSuccess, Table, ButtonPrimary, ButtonWarning, ButtonDanger, AlertSuccess } from "../../styles/custom_adm";
 
 export const Listar = () => {
 
@@ -58,7 +58,7 @@ export const Listar = () => {
                 </BotaoAcao>
             </ConteudoTitulo>
 
-            {status.type === "success" ? <p style={{ color: "green" }}>{status.mensagem}</p> : ""}
+            {status.type === "success" ? <AlertSuccess style={{ color: "green" }}>{status.mensagem}</AlertSuccess> : ""}
 
             <hr />
             <Table>
