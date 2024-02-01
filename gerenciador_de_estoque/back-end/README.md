@@ -24,5 +24,19 @@ Remover a política de execução
 ### Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
 Para remover a diretiva de execução de um escopo específico, defina a diretiva de execução como Undefined.
 
+Instalar o banco de dados MySQL
+
 Verificar o banco de dados MySQL no pront de comando
 ### mysql -h localhost -u root -p
+
+Instalar o Workbench para gerenciar o banco de dados de forma gráfica
+
+Comandos básicos de MySQL
+Criar a base de dados
+### create database estoque character set utf8mb4 collate utf8mb4_unicode_ci;
+
+Sequelize é uma biblioteca JavaScript que facilita o gerenciamento de uma banco de dados SQL
+### npm install --save sequelize
+
+Intalando banco de dados MySQL
+### npm install --save mysql2
