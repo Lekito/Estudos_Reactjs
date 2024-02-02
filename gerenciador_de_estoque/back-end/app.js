@@ -54,6 +54,22 @@ app.post("/cad-produto", async (req, res) => {
         });
 });
 
+app.put('/edit-produto', async (req, res) => {
+    const { id } = req.body;
+    await Produto.update(req.body, { where: { id } })
+        .then(() => {
+            return res.json({
+                erro: false,
+                mensagem: "Produto editado com sucesso!"
+            })
+        }).catch(() => {
+            return res.status(400).json({
+                erro: true,
+                mensagem: "Produto não editado com sucesso!"
+            });
+        });
+});
+
 
 
 app.listen(8080, () => {
