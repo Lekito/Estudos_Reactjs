@@ -70,7 +70,22 @@ app.put('/edit-produto', async (req, res) => {
         });
 });
 
-
+app.delete('/delete-produto/:id', async (req, res) => {
+    const { id } = req.params;
+    await Produto.destroy({
+        where: { id }
+    }).then(() => {
+        return res.json({
+            erro: false,
+            mensagem: "Produto apagado com sucesso!"
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Erro: Produto não apagado com sucesso!"
+        });
+    });
+});
 
 app.listen(8080, () => {
     console.log("Servidor iniciado na porta 8080: http://localhost:8080");
