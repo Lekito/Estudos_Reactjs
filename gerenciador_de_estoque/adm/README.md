@@ -21,3 +21,6 @@ Gerenciar as rotas
 Transforma o CSS em componentes
 # with npm
 ### npm install styled-components
+
+Realiza chamada para API
+### npm install --save axios

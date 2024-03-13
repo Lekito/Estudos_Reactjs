@@ -6,12 +6,12 @@ const Produto = require('./models/Produtos');
 
 app.use(express.json());
 
-app.use((req, res, next) => {
+app.use((req, res, next) => { // isso é Middleware(é execultado antes de qualquer rota)
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", ['GET', 'PUT', 'POST', 'DELETE']);
     res.header("Access-Control-Allow-Headers", "X-PINGOTHER, Content-Type, Authorization");
     app.use(cors());
-    next();
+    next(); // caso não tenha nenhum erro continue.
 });
 
 app.get("/view-produto/:id", async (req, res) => {
