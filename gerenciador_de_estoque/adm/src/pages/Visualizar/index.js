@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Menu } from '../../Components/Menu';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Container, ConteudoTitulo, Titulo, BotaoAcao, ButtonWarning, ButtonInfo, ConttentView, Hr } from "../../styles/custom_adm";
 
 import api from '../../config/configApi';
@@ -8,7 +8,8 @@ import api from '../../config/configApi';
 export const Visualizar = () => {
 
     const { id } = useParams();
-    console.log(id);
+    //console.log(id);
+    const navigate = useNavigate();
 
     const [data, setData] = useState("");
     const [status, setStatus] = useState({
@@ -25,12 +26,12 @@ export const Visualizar = () => {
                 }).catch((err) => {
                     if (err.response) {
                         setStatus({
-                            type: "error",
+                            type: "redErro",
                             mensagem: err.response.data.message
                         });
                     } else {
                         setStatus({
-                            type: "error",
+                            type: "redErro",
                             mensagem: "Erro: Tente mais tarde!"
                         });
                     }
@@ -49,6 +50,14 @@ export const Visualizar = () => {
                     <Link to={"/editar/" + id}><ButtonWarning type="button">Editar</ButtonWarning></Link>
                 </BotaoAcao>
             </ConteudoTitulo>
+
+            {status.type === 'redErro' ? navigate("/listar", {
+                state:
+                {
+                    type: "erro",
+                    mensagem: status.mensagem
+                }
+            }) : ""}
 
             <Hr />
 
