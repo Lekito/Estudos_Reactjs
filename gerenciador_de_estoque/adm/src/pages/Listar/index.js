@@ -36,28 +36,6 @@ export const Listar = () => {
                 }
                 console.error(err.response);
             });
-        /* var valores = [
-             {
-                 "id": 3,
-                 "nome": "Monitor",
-                 "valor": 820.61,
-                 "quantidade": 15,
-             },
-             {
-                 "id": 2,
-                 "nome": "Teclado",
-                 "valor": 120.47,
-                 "quantidade": 25,
-             },
-             {
-                 "id": 1,
-                 "nome": "Mouse",
-                 "valor": 52.47,
-                 "quantidade": 43,
-             }
-         ]
-         setData(valores);
-         */
     }
 
     useEffect(() => {
@@ -65,8 +43,28 @@ export const Listar = () => {
     }, []);
 
     const apagarProduto = async (idProduto) => {
-        console.log(idProduto);
-        alert("Apagar o produto: " + idProduto);
+
+        await api.delete("/delete-produto/" + idProduto)
+            .then((response) => {
+                setStatus({
+                    type: "success",
+                    mensagem: response.data.mensagem,
+                });
+                listarProdutos();
+            }).catch((err) => {
+                if (err.response) {
+                    setStatus({
+                        type: "error",
+                        mensagem: err.response.data.mensagem,
+                    });
+                } else {
+                    setStatus({
+                        type: "error",
+                        mensagem: "Erro: Tente mais tarde!"
+                    });
+                }
+            });
+
     }
 
     return (
