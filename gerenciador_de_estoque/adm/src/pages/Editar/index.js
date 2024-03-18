@@ -22,11 +22,32 @@ export const Editar = () => {
 
     const editProduto = async e => {
         e.preventDefault();
-        console.log("Nome: " + nome);
-        console.log("Preço de compra: " + preco_compra);
-        console.log("Preço de venda: " + preco_venda);
-        console.log("Quantidade: " + quantidade);
-        alert("Nome: " + nome);
+
+        const headers = {
+            'headers': {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        await api.put("/edit-produto", { id, nome, preco_compra, preco_venda, quantidade }, headers)
+            .then((response) => {
+                setStatus({
+                    type: 'redSuccess',
+                    mensagem: response.data.mensagem
+                });
+            }).catch((err) => {
+                if (err.response) {
+                    setStatus({
+                        type: 'error',
+                        mensagem: err.response.data.mensagem
+                    });
+                } else {
+                    setStatus({
+                        type: 'error',
+                        mensagem: "Erro: Tente mais tarde!"
+                    });
+                }
+            })
     }
 
     useEffect(() => {
@@ -72,7 +93,7 @@ export const Editar = () => {
                 state:
                 {
                     type: "success",
-                    mensagem: "Produto cadastrado com sucesso!"
+                    mensagem: status.mensagem
                 }
             }) : ""}
 

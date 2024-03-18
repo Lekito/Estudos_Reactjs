@@ -90,7 +90,7 @@ export const Cadastrar = () => {
                 state:
                 {
                     type: "success",
-                    mensagem: "Produto cadastrado com sucesso!"
+                    mensagem: status.mensagem
                 }
             }) : ""}
 
