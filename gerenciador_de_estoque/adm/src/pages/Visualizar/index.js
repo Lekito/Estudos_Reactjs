@@ -63,8 +63,8 @@ export const Visualizar = () => {
 
             <ConttentView>ID:{data.id}</ConttentView>
             <ConttentView>Nome: {data.nome}</ConttentView>
-            <ConttentView>Preço de Compra: R$ {data.preco_compra}</ConttentView>
-            <ConttentView>Preço de Venda: R$ {data.preco_venda}</ConttentView>
+            <ConttentView>Preço de Compra: {new Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(data.preco_compra)}</ConttentView>
+            <ConttentView>Preço de Venda: {new Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(data.preco_venda)}</ConttentView>
             <ConttentView>Quantidade: {data.quantidade}</ConttentView>
         </Container>
     );
