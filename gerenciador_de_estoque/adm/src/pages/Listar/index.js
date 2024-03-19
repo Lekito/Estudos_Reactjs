@@ -98,12 +98,13 @@ export const Listar = () => {
                             <tr key={produto.id}>
                                 <td>{produto.id}</td>
                                 <td>{produto.nome}</td>
-                                <td>{produto.preco_venda}</td>
+                                <td>{new Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(produto.preco_venda)}</td>
                                 <td>{produto.quantidade}</td>
                                 <td>
                                     <Link to={"/visualizar/" + produto.id}><ButtonPrimary type="button">Visualizar</ButtonPrimary></Link>
                                     <Link to={"/editar/" + produto.id}><ButtonWarning type="button">Editar</ButtonWarning></Link>
-                                    <Link to={"#"}><ButtonDanger onClick={() => apagarProduto(produto.id)}>Apagar</ButtonDanger></Link></td>
+                                    <Link to={"#"}><ButtonDanger onClick={() => apagarProduto(produto.id)}>Apagar</ButtonDanger></Link>
+                                </td>
                             </tr>
                         ))
                     }
