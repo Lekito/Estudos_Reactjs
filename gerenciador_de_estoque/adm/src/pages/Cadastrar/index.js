@@ -15,6 +15,10 @@ export const Cadastrar = () => {
         quantidade: ''
     });
 
+    const [valorPrecoCompraTarget, setValorPrecoCompraTarget] = useState();
+
+    const [valorPrecoVendaTarget, setValorPrecoVendaTarget] = useState();
+
     const [status, setStatus] = useState({
         type: '',
         mensagem: ''
@@ -49,27 +53,38 @@ export const Cadastrar = () => {
                         mensagem: "Erro: Tente mais tarde!"
                     });
                 }
-            })
+            });
+    };
 
-        //console.log("Quatidade: " + produto.quantidade);
+    const valuePrecoCompra = async e => {
+        var valorPrecoCompraInput = e.target.value;
 
-        /*
-        setStatus({
-            type: 'error',
-            mensagem: 'Erro: Produto não cadastrado com sucesso!'
-        });
-        */
-        /*
-        setStatus({
-            type: 'success',
-            mensagem: 'Produto cadastrado com sucesso!'
-        });
-        */
-        /*setStatus({
-            type: 'redSuccess',
-            mensagem: 'Produto cadastrado com sucesso!'
-        });*/
+        valorPrecoCompraInput = valorPrecoCompraInput.replace(/\D/g, "");
+        valorPrecoCompraInput = valorPrecoCompraInput.replace(/(\d)(\d{2})$/, "$1,$2");
+        valorPrecoCompraInput = valorPrecoCompraInput.replace(/(?=(\d{3})+(\D))\B/g, ".");
 
+        setValorPrecoCompraTarget(valorPrecoCompraInput);
+
+        var precoCompraSalvar = await valorPrecoCompraInput.replace(".", "");
+        precoCompraSalvar = await precoCompraSalvar.replace(",", ".");
+
+        setProduto({ ...produto, preco_compra: precoCompraSalvar });
+
+    }
+
+    const valuePrecoVenda = async e => {
+        var valorPrecoVendaInput = e.target.value;
+
+        valorPrecoVendaInput = valorPrecoVendaInput.replace(/\D/g, "");
+        valorPrecoVendaInput = valorPrecoVendaInput.replace(/(\d)(\d{2})$/, "$1,$2");
+        valorPrecoVendaInput = valorPrecoVendaInput.replace(/(?=(\d{3})+(\D))\B/g, ".");
+
+        setValorPrecoVendaTarget(valorPrecoVendaInput);
+
+        var precoVendaSalvar = await valorPrecoVendaInput.replace(".", "");
+        precoVendaSalvar = await precoVendaSalvar.replace(",", ".");
+
+        setProduto({ ...produto, preco_venda: precoVendaSalvar });
     }
 
     return (
@@ -99,9 +114,10 @@ export const Cadastrar = () => {
                 <Input type="text" name="nome" placeholder="Nome do produto" onChange={valueInput}></Input>
 
                 <Label>Preço de Compra: </Label>
-                <Input type="float" name="preco_compra" placeholder="Preço de compra" onChange={valueInput}></Input>
+                <Input type="float" name="valorPrecoCompraTarget" placeholder="Preço de compra" value={valorPrecoCompraTarget} onChange={valuePrecoCompra}></Input>
+
                 <Label>Preço de Venda: </Label>
-                <Input type="float" name="preco_venda" placeholder="Preço de venda" onChange={valueInput}></Input>
+                <Input type="float" name="valorPrecoVendaTarget" placeholder="Preço de venda" value={valorPrecoVendaTarget} onChange={valuePrecoVenda}></Input>
 
                 <Label>Quatidade: </Label>
                 <Input type="number" name="quantidade" placeholder="Quantidade do produto" onChange={valueInput}></Input>
