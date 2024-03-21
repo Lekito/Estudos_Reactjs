@@ -13,6 +13,10 @@ export const Editar = () => {
     const [preco_venda, setPreco_venda] = useState("");
     const [quantidade, setQuantidade] = useState("");
 
+    const [valorPrecoCompraTarget, setValorPrecoCompraTarget] = useState();
+
+    const [valorPrecoVendaTarget, setValorPrecoVendaTarget] = useState();
+
     const [status, setStatus] = useState({
         type: "",
         mensagem: ""
@@ -56,8 +60,13 @@ export const Editar = () => {
                 .then((response) => {
                     //setData(response.data.produto);
                     setNome(response.data.produto.nome);
+
                     setPreco_compra(response.data.produto.preco_compra);
+                    setValorPrecoCompraTarget(new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency: 'BRL' }).format(response.data.produto.preco_compra));
+
                     setPreco_venda(response.data.produto.preco_venda);
+                    setValorPrecoVendaTarget(new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, currency: 'BRL' }).format(response.data.produto.preco_venda));
+
                     setQuantidade(response.data.produto.quantidade);
                 }).catch((err) => {
                     if (err.response) {
@@ -75,6 +84,36 @@ export const Editar = () => {
         }
         getProduto();
     }, [id]);
+
+
+    const valuePrecoCompra = async (valorPrecoCompraInput) => {
+
+        var valorPrecoCompraConvert = valorPrecoCompraInput.toString().replace(/\D/g, "");
+        valorPrecoCompraConvert = valorPrecoCompraConvert.replace(/(\d)(\d{2})$/, "$1,$2");
+        valorPrecoCompraConvert = valorPrecoCompraConvert.replace(/(?=(\d{3})+(\D))\B/g, ".");
+
+        setValorPrecoCompraTarget(valorPrecoCompraConvert);
+
+        var precoCompraSalvar = await valorPrecoCompraConvert.replace(".", "");
+        precoCompraSalvar = await precoCompraSalvar.replace(",", ".");
+
+        setPreco_compra(precoCompraSalvar);
+    }
+
+    const valuePrecoVenda = async (valorPrecoVendaInput) => {
+
+        var valorPrecoVendaConvert = valorPrecoVendaInput.toString().replace(/\D/g, "");
+        valorPrecoVendaConvert = valorPrecoVendaConvert.replace(/(\d)(\d{2})$/, "$1,$2");
+        valorPrecoVendaConvert = valorPrecoVendaConvert.replace(/(?=(\d{3})+(\D))\B/g, ".");
+
+        setValorPrecoVendaTarget(valorPrecoVendaConvert);
+
+        var precoVendaSalvar = await valorPrecoVendaConvert.replace(".", "");
+        precoVendaSalvar = await precoVendaSalvar.replace(",", ".");
+
+        setPreco_venda(precoVendaSalvar);
+    }
+
 
     return (
         <Container>
@@ -104,10 +143,10 @@ export const Editar = () => {
                 <Input type="text" name="nome" placeholder="Nome do produto" value={nome} onChange={e => setNome(e.target.value)}></Input>
 
                 <Label>Preço de Compra: </Label>
-                <Input type="float" name="preco_compra" placeholder="Preço de compra" value={preco_compra} onChange={e => setPreco_compra(e.target.value)}></Input>
+                <Input type="float" name="valorPrecoCompraTarget" placeholder="Preço de compra" value={valorPrecoCompraTarget} onChange={e => valuePrecoCompra(e.target.value)}></Input>
 
                 <Label>Preço de Venda: </Label>
-                <Input type="float" name="preco_venda" placeholder="Preço de venda" value={preco_venda} onChange={e => setPreco_venda(e.target.value)}></Input>
+                <Input type="float" name="valorPrecoVendaTarget" placeholder="Preço de venda" value={valorPrecoVendaTarget} onChange={e => valuePrecoVenda(e.target.value)}></Input>
 
                 <Label>Quatidade: </Label>
                 <Input type="number" name="quantidade" placeholder="Quantidade do produto" value={quantidade} onChange={e => setQuantidade(e.target.value)}></Input>
